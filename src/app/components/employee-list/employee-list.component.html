@@ -1,0 +1,5 @@
+<div class="info">
+    <mat-card class="color-card" *ngFor="let emp of employees">
+        <app-employee [employee]="emp" (deleteEmployeeRecord)="deleteEmployeeRecord($event)" (editCompensation)="editCompensation($event)"></app-employee>
+    </mat-card>
+</div>

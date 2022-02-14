@@ -1,0 +1,63 @@
+<div class="confirmation-box" *ngIf="data.edited">
+    <h4 mat-dialog-title>
+        Compensation updated for {{ data.firstName }} {{ data.lastName }}.
+    </h4>
+</div>
+<div class="confirmation-box" *ngIf="data.deleted">
+    <h4 mat-dialog-title>
+        Employee {{ data.firstName }} {{ data.lastName }} has been deleted.
+    </h4>
+</div>
+<div modal-fade *ngIf="data.modalAction === 'delete'">
+    <div class="modal-content action-container">
+        <div class="modal-header">
+            <h1 class="modal-title" style="text-align: center;"><b>DELETE DIRECT REPORT</b></h1>
+        </div>
+        <div class="modal-body">
+            <p>Permanently delete direct report {{ data.firstName }} {{ data.lastName }}?</p>
+            <p>This cannot be undone.</p>
+            <div style="text-align: center;">
+                <mat-dialog-actions>
+                    <button mat-raised-button (click)="deleteEmployee(data, 'deleted')">Remove</button>
+                    <button mat-button mat-dialog-close>CANCEL</button>
+                </mat-dialog-actions>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-fade" *ngIf="data.modalAction === 'edit'">
+    <div class="modal-header">
+        <h1 class="modal-title" style="text-align: center;"><b>EDIT COMPENSATION</b></h1>
+    </div>
+    <div class="modal-content">
+        <div class="modal-body">
+            <form class="form-style-7" (submit)="editCompensation(data, compensation.value, 'edited')">
+                <ul>
+                <li>
+                    <label for="firstName">Name</label>
+                    <input type="text" id="firstName" maxLength="100" placeholder={{data.firstName}} disabled />
+                </li>
+                <li>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" maxLength="100" placeholder={{data.lastName}} disabled />
+
+                </li>
+                <li>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" maxLength="100" placeholder={{data.position}} disabled />
+                </li>
+                <li style="border-color: #0065B6;">
+                    <label style="color: #0065B6;" for="compensation">Compensation<span class="required">*</span></label>
+                    <input type="text" [value]="data.compensation || null" mvndrMatCurrencyFormat [allowNegative]="false" matInput required [currencyCode]="'USD'" #compensation />
+                </li>
+                <li>
+                    <mat-card-actions>
+                        <button matInput mat-raised-button >SAVE</button>
+                        <button mat-button mat-dialog-close>CANCEL</button>
+                    </mat-card-actions>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>

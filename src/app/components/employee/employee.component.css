@@ -1,0 +1,25 @@
+.compress {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.report-section {
+    background-color:#8F8A86;
+}
+mat-card-title {
+    color: #0065B6;
+}
+mat-card-subtitle {
+    color: black;
+}
+.reporteeRow {
+    background-color: lightgrey;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.subtitle-span {
+    text-align: left;
+}
+.btn {
+    line-height: 1;
+    border: none;
+}
