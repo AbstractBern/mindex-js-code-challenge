@@ -14,7 +14,7 @@
 
         <ng-template #showReports>
                 <div class="d-flex reporteeRow" *ngFor="let rep of reportees">
-                    <div class="p-2 flex-grow-1">{{rep.lastName}}, {{rep.position}}</div>
+                    <div class="p-2 flex-grow-1">{{rep.firstName}} {{rep.lastName}}, {{rep.position}}</div>
                     <div class="p-2"><button type="button" class="btn btn-outline-primary me-2 p-2" (click)="openDialog(employee, rep, 'edit')"><mat-icon>edit</mat-icon></button></div>
                     <div class="p-2"><button type="button" class="btn btn-outline-danger p-2" (click)="openDialog(employee, rep, 'delete')"><mat-icon>delete_forever</mat-icon></button></div>
                 </div>
